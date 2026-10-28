@@ -25,6 +25,7 @@ Use Node `24.21.0` from `.nvmrc` and pnpm `11.28.0` from `package.json`.
 
 ```bash
 pnpm install --frozen-lockfile
+pnpm exec gulp gather-gallery-pages
 pnpm test --maxWorkers=4
 pnpm lint:types
 pnpm build --modern
@@ -36,6 +37,10 @@ If using mise, prefix commands with `mise exec node@24.21.0 --`. For example:
 mise install node@24.21.0
 mise exec node@24.21.0 -- pnpm install --frozen-lockfile
 ```
+
+The gallery page index is generated into the ignored `gallery/build/` directory.
+Generate it before the repository-wide typecheck; otherwise TypeScript reports
+missing `gallery/build/import-pages` modules on a fresh checkout.
 
 The modern production build writes `hass_frontend/`, including HTML entrypoints,
 hashed JavaScript, static files and service workers. It excludes the legacy
