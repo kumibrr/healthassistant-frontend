@@ -42,6 +42,11 @@ The gallery page index is generated into the ignored `gallery/build/` directory.
 Generate it before the repository-wide typecheck; otherwise TypeScript reports
 missing `gallery/build/import-pages` modules on a fresh checkout.
 
+This fork also fixes upstream's font-copy filter for dotted checkout paths such
+as `.t3/`. The copy step must traverse directories regardless of their names and
+include WOFF2 files. `pnpm test test/build-scripts` covers that regression and the
+existing build utilities.
+
 The modern production build writes `hass_frontend/`, including HTML entrypoints,
 hashed JavaScript, static files and service workers. It excludes the legacy
 JavaScript bundle. Use `pnpm build` for the complete modern and legacy production

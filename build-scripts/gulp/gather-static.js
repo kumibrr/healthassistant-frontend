@@ -4,6 +4,7 @@ import fs from "fs-extra";
 import gulp from "gulp";
 import path from "path";
 import paths from "../paths.cjs";
+import { copyFontAssets } from "./font-assets.js";
 import { ensureMapAssets, mapAssetsDir } from "./map-assets.js";
 
 const npmPath = (...parts) =>
@@ -45,12 +46,9 @@ function copyMdiIcons(staticDir) {
 function copyFonts(staticDir) {
   const staticPath = genStaticPath(staticDir);
   // Local fonts
-  fs.copySync(
+  copyFontAssets(
     npmPath("roboto-fontface/fonts/roboto/"),
-    staticPath("fonts/roboto/"),
-    {
-      filter: (src) => !src.includes(".") || src.endsWith(".woff2"),
-    }
+    staticPath("fonts/roboto/")
   );
 }
 
