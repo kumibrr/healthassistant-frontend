@@ -1,4 +1,14 @@
-# Home Assistant Frontend
+# HealthAssistant Frontend
+
+HealthAssistant's frontend fork of Home Assistant. The `healthassistant` branch
+starts from upstream release `20260930.4`, paired with the HealthAssistant Core
+2026.10.2 facilities implementation. The upstream application is preserved as the
+baseline; the hospital interface changes are the next development milestone.
+
+See [HealthAssistant development](docs/healthassistant-development.md) for setup,
+build commands, and connecting this checkout to Core.
+
+## Upstream project
 
 This is the repository for the official [Home Assistant](https://home-assistant.io) frontend.
 
